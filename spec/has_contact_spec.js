@@ -1,10 +1,8 @@
-const fixture = require('../lib/has_contact');
-
 describe("has_contact", function() {
     it("returns false when event has no labels", function() {
         var event = {}
 
-        expect(fixture.has_contact(event,"")).toBe(false);
+        expect(has_contact(event,"")).toBe(false);
     });
 
     it("returns false when event has only some labels", function() {
@@ -15,7 +13,7 @@ describe("has_contact", function() {
             }
         };
 
-        expect(fixture.has_contact(event,"")).toBe(false);
+        expect(has_contact(event,"")).toBe(false);
     });
 
     it("returns false when check and entity labels are empty", function() {
@@ -28,7 +26,7 @@ describe("has_contact", function() {
             }
         };
 
-        expect(fixture.has_contact(event, "")).toBe(false);
+        expect(has_contact(event, "")).toBe(false);
     });
 
     it("returns true when check contacts match exactly", function() {
@@ -41,7 +39,7 @@ describe("has_contact", function() {
             }
         };
 
-        expect(fixture.has_contact(event, contact)).toBe(true);
+        expect(has_contact(event, contact)).toBe(true);
     });
 
     it("returns true when check contacts values contains a match", function() {
@@ -54,7 +52,7 @@ describe("has_contact", function() {
             }
         };
 
-        expect(fixture.has_contact(event, contact)).toBe(true);
+        expect(has_contact(event, contact)).toBe(true);
     });
 
     it("returns true when entity contacts match exactly", function() {
@@ -67,7 +65,7 @@ describe("has_contact", function() {
             }
         };
 
-        expect(fixture.has_contact(event, contact)).toBe(true);
+        expect(has_contact(event, contact)).toBe(true);
     });
 
     it("returns true when check contacts values contains a match", function() {
@@ -80,6 +78,6 @@ describe("has_contact", function() {
             }
         };
 
-        expect(fixture.has_contact(event, contact)).toBe(true);
+        expect(has_contact(event, contact)).toBe(true);
     });
 });
