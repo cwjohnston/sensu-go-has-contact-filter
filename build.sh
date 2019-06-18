@@ -1,8 +1,17 @@
 #!/usr/bin/env bash
 
-ARCHIVE=has_contact.tar.gz
+if [[ "${TRAVIS_TAG}" ]]; then
+    VER=$TRAVIS_TAG
+else
+    VER=$(git rev-parse --short HEAD)
+fi
+
+RELEASE="sensu-go-has-contact-filter-${VER}"
+ARCHIVE="${RELEASE}.tar.gz"
 
 rm -rf dist
 mkdir -p dist
-tar -c --exclude $ARCHIVE . > "dist/$ARCHIVE"
-echo "sha512sum: $(shasum -a 512 dist/$ARCHIVE)"
+tar -c {lib,README.md} > "dist/${ARCHIVE}"
+cd dist
+
+sha512sum "${ARCHIVE}" > "${RELEASE}_sha512-checksums.txt"
