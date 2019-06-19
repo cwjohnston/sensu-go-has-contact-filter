@@ -164,9 +164,10 @@ spec:
 
 With a handler set like this one in place, check results configured with the `email` handler will spawn a handler pipeline for each handler in the set, each pipeline using the `has_contact` function to evaluate whether or not the event matches a named contact. Based on the above examples, a check result with "dev" and/or "ops" will be routed to those contacts respective email addresses, whereas any check result without contacts defined will be handled by the `email_default` handler.
 
-See the included [contact routing pattern diagram](contact_routing_pattern.png) for a visual description of intended use cases.
+See the included [contact routing pattern diagram][diagram] for a visual description of intended use cases.
 
 [sgo]: https://sensu.io/
 [handlers]: https://docs.sensu.io/sensu-go/latest/reference/handlers/
 [filters]: https://docs.sensu.io/sensu-go/latest/reference/filters/
 [bonsai]: https://bonsai.sensu.io/assets/cwjohnston/sensu-go-has-contact-filter
+[diagram]: https://raw.githubusercontent.com/cwjohnston/sensu-go-has-contact-filter/master/contact_routing_pattern.png
