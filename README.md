@@ -145,7 +145,7 @@ spec:
   type: pipe
 ```
 
-For greatest effect, multiple handler definitions like this one can be combined in a handler set:
+For greatest effect, you can combine multiple handler definitions in a handler set:
 
 ``` yaml
 ---
