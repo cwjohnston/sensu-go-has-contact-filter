@@ -14,6 +14,5 @@ jobs:
       with:
         node-version: 12.x
       id: node
-    - name: Test
-      run: |
-        yarn test
+    - run: yarn install
+    - run: yarn test
