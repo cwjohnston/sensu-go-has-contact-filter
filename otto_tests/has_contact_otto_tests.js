@@ -183,6 +183,42 @@ function has_contact_test9() {
     }
 }
 
+function has_contact_test10() {
+    var msg = "returns true when entity contacts match, even with whitespace in commma separated values";
+    var event = {
+        entity: {
+            labels: {
+                contacts: "foo, bar , baz"
+            }
+        }
+    };
+
+    var result = has_contact(event, "bar");
+    if (result) {
+        console.log("PASSED ✅ " + msg);
+    } else {
+        console.log("FAILED ❌ " + msg);
+    }
+}
+
+function has_contact_test11() {
+    var msg = "returns true when entity contacts match, even with whitespace in function argument";
+    var event = {
+        entity: {
+            labels: {
+                contacts: "foo, bar , baz"
+            }
+        }
+    };
+
+    var result = has_contact(event, " bar ");
+    if (result) {
+        console.log("PASSED ✅ " + msg);
+    } else {
+        console.log("FAILED ❌ " + msg);
+    }
+}
+
 console.log("Testing has_contacts")
 has_contact_test0();
 has_contact_test1();
@@ -194,3 +230,5 @@ has_contact_test6();
 has_contact_test7();
 has_contact_test8();
 has_contact_test9();
+has_contact_test10();
+has_contact_test11();
