@@ -4,6 +4,7 @@
 [Full Changelog](https://github.com/sensu/sensu-go-has-contact-filter/compare/0.2.0...HEAD)
 
 - `has_contact` function now trims empty space around contact names, both when present in comma-separated label values, and when present in contact name provided as a function argument.
+- moved CI pipeline from travis to github, added tests using otto vm -- jasmine tests now deprecated
 
 ## [0.2.0](https://github.com/sensu/sensu-go-has-contact-filter/tree/0.2.0) (2019-06-26)
 [Full Changelog](https://github.com/sensu/sensu-go-has-contact-filter/compare/0.1.2...0.2.0)
