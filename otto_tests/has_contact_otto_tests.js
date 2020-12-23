@@ -183,6 +183,78 @@ function has_contact_test9() {
     }
 }
 
+function has_contact_test10() {
+    var msg = "returns true when entity contacts match, even with blank space in commma separated values";
+    var event = {
+        entity: {
+            labels: {
+                contacts: "foo, bar , baz"
+            }
+        }
+    };
+
+    var result = has_contact(event, "bar");
+    if (result) {
+        console.log("PASSED ✅ " + msg);
+    } else {
+        console.log("FAILED ❌ " + msg);
+    }
+}
+
+function has_contact_test11() {
+    var msg = "returns true when entity contacts match, even with blank space in function argument";
+    var event = {
+        entity: {
+            labels: {
+                contacts: "foo, bar , baz"
+            }
+        }
+    };
+
+    var result = has_contact(event, " bar ");
+    if (result) {
+        console.log("PASSED ✅ " + msg);
+    } else {
+        console.log("FAILED ❌ " + msg);
+    }
+}
+
+function has_contact_test12() {
+    var msg = "returns true when contacts match, even with blank space inside contact name";
+    var event = {
+        entity: {
+            labels: {
+                contacts: "foo, steve from accounting , baz"
+            }
+        }
+    };
+
+    var result = has_contact(event, "steve from accounting");
+    if (result) {
+        console.log("PASSED ✅ " + msg);
+    } else {
+        console.log("FAILED ❌ " + msg);
+    }
+}
+
+function has_contact_test13() {
+    var msg = "returns true when contacts match, even with email address as contact name";
+    var event = {
+        entity: {
+            labels: {
+                contacts: "invalid@example.com, do-not-reply@example.com, steve@example.com"
+            }
+        }
+    };
+
+    var result = has_contact(event, "do-not-reply@example.com");
+    if (result) {
+        console.log("PASSED ✅ " + msg);
+    } else {
+        console.log("FAILED ❌ " + msg);
+    }
+}
+
 console.log("Testing has_contacts")
 has_contact_test0();
 has_contact_test1();
@@ -194,3 +266,7 @@ has_contact_test6();
 has_contact_test7();
 has_contact_test8();
 has_contact_test9();
+has_contact_test10();
+has_contact_test11();
+has_contact_test12();
+has_contact_test13();

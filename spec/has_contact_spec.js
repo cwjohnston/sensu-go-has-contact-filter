@@ -96,6 +96,19 @@ describe("has_contact", function() {
         expect(has_contact(event, contact)).toBe(true);
     });
 
+    it("returns true when entity contacts match, even with whitespace", function() {
+        var contact = "bar"
+        var event = {
+            entity: {
+                labels: {
+                    contacts: `foo, ${contact}, baz`
+                }
+            }
+        };
+
+        expect(has_contact(event, contact)).toBe(true);
+    });
+
     it("returns true when check contacts values contains a match", function() {
         var contact = "bar"
         var event = {
