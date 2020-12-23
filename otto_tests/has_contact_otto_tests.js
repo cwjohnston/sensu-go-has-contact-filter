@@ -255,10 +255,6 @@ function has_contact_test13() {
     }
 }
 
-function failing_test() {
-    console.log("FAILED ❌ this test intentionally failed");
-}
-
 console.log("Testing has_contacts")
 has_contact_test0();
 has_contact_test1();
@@ -274,4 +270,3 @@ has_contact_test10();
 has_contact_test11();
 has_contact_test12();
 has_contact_test13();
-failing_test();
