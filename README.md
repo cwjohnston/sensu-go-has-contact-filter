@@ -8,9 +8,11 @@ This project implements a [Sensu Go][sgo] event filter library, providing a pair
 
 The `has_contact` function requires two arguments: the event object and a contact name string. Given these inputs, the function evaluates whether or not the specified contact name appears in comma separated values for the `contacts` label, under either the entity or check scope.
 
+When contacts are present in the event's check labels, any contacts defined at in the event's entity labels are ignored.
+
 ###  no_contacts
 
-The `no_contacts` function accepts the event object as its sole argument. This function returns true if the event does not contain a `contacts` label under either the event's entity or check scopes.
+The `no_contacts` function accepts the event object as its sole argument. This function returns true if the event does not contain a `contacts` label under either the event's entity or check scopes, or if those labels values contain only blank space.
 
 
 ## Installation
