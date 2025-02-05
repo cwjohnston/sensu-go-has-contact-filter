@@ -14,6 +14,21 @@ When contacts are present in the event's check labels, any contacts defined at i
 
 The `no_contacts` function accepts the event object as its sole argument. This function returns true if the event does not contain a `contacts` label under either the event's entity or check scopes, or if those labels values contain only blank space.
 
+### has_entity_contact
+
+The `has_entity_contact` function requires two arguments: the event object and a contact name string. Given these inputs, the function evaluates whether or not the specified contact name appears in comma separated values for the `contacts` label, under the entity scope.
+
+###  no_entity_contact
+
+The `no_entity_contact` function accepts the event object as its sole argument. This function returns true if the event does not contain a `contacts` label under the event's entity or if those labels values contain only blank space.
+
+### has_check_contact
+
+The `has_check_contact` function requires two arguments: the event object and a contact name string. Given these inputs, the function evaluates whether or not the specified contact name appears in comma separated values for the `contacts` label, under check scope.
+
+###  no_check_contact
+
+The `no_check_contact` function accepts the event object as its sole argument. This function returns true if the event does not contain a `contacts` label under the event's check scopes, or if those labels values contain only blank space.
 
 ## Installation
 
@@ -58,6 +73,40 @@ spec:
     - sensu-go-has-contact-filter
   expressions:
     - has_contact(event, "ops")
+```
+
+if you want to check contacts only in check and ignore entity contacts
+
+``` yaml
+---
+type: EventFilter
+api_version: core/v2
+metadata:
+  name: contact_ops
+  namespace: default
+spec:
+  action: allow
+  runtime_assets:
+    - sensu-go-has-contact-filter
+  expressions:
+    - has_check_contact(event, "ops")
+```
+
+if you want to check contacts only in entity and ignore check contacts
+
+``` yaml
+---
+type: EventFilter
+api_version: core/v2
+metadata:
+  name: contact_ops
+  namespace: default
+spec:
+  action: allow
+  runtime_assets:
+    - sensu-go-has-contact-filter
+  expressions:
+    - has_entity_contact(event, "ops")
 ```
 
 To complement filters which test for specific contact names, you may also wish to have a filter which handles events without explicitly defined contacts: 
@@ -164,7 +213,7 @@ spec:
   - email_default
 ```
 
-With a handler set like this one in place, check results configured with the `email` handler will spawn a handler pipeline for each handler in the set, each pipeline using the `has_contact` function to evaluate whether or not the event matches a named contact. Based on the above examples, a check result with "dev" and/or "ops" will be routed to those contacts respective email addresses, whereas any check result without contacts defined will be handled by the `email_default` handler.
+With a handler set like this one in place, check results configured with the `email` handler will spawn a handler pipeline for each handler in the set, each pipeline using the `has_contact`, `has_entity_contact`, `has_check_contact` function to evaluate whether or not the event matches a named contact. Based on the above examples, a check result with "dev" and/or "ops" will be routed to those contacts respective email addresses, whereas any check result without contacts defined will be handled by the `email_default` handler.
 
 See the included [contact routing pattern diagram][diagram] for a visual description of intended use cases.
 
