@@ -2,6 +2,12 @@
 
 ## [Unreleased](https://github.com/sensu/sensu-go-has-contact-filter/tree/HEAD)
 [Full Changelog](https://github.com/sensu/sensu-go-has-contact-filter/compare/0.3.0...HEAD)
+- Added `has_check_contact` function. Use this to filter contacts in check contacts.
+- Added `has_entity_contact` function. Use this to filter contacts in entity contacts.
+- Added `no_check_contact` function. Use this when defining a "default" handler which is used when no check contacts are defined.
+- Added `no_entity_contact` function. Use this when defining a "default" handler which is used when no entity contacts are defined.
+- Updated readme for examples of `has_check_contact` and `has_entity_contact`
+
 
 ## [0.3.0](https://github.com/sensu/sensu-go-has-contact-filter/tree/0.3.0) (2020-12-23)
 [Full Changelog](https://github.com/sensu/sensu-go-has-contact-filter/compare/0.2.0...0.3.0)
