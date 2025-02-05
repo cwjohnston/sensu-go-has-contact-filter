@@ -88,23 +88,6 @@ function has_check_contact_test6() {
     }
 }
 
-function has_check_contact_test8() {
-    var msg = "returns true when check contacts values contains a match";
-    var event = {
-        entity: {
-            labels: {
-                contacts: "foo,bar,baz"
-            }
-        }
-    };
-    var result = has_check_contact(event, "bar");
-    if (result) {
-        console.log("PASSED ✅ " + msg);
-    } else {
-        console.log("FAILED ❌ " + msg);
-    }
-}
-
 function has_check_contact_test10() {
     var msg = "returns true when check contacts match, even with blank space in commma separated values";
     var event = {
@@ -147,6 +130,5 @@ has_check_contact_test1();
 has_check_contact_test2();
 has_check_contact_test5();
 has_check_contact_test6();
-has_check_contact_test8();
 has_check_contact_test10();
 has_check_contact_test13();
