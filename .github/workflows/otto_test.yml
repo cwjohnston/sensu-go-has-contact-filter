@@ -21,5 +21,5 @@ jobs:
     - name: Test
       run: |
         export PATH=$PATH:$(go env GOPATH)/bin
-        cat lib/has_contact.js otto_tests/has_contact_otto_tests.js lib/no_contacts.js otto_tests/no_contacts_otto_tests.js > otto_tests/test.js
+        cat lib/has_check_contact.js otto_tests/has_check_contact_otto_tests.js lib/has_entity_contact.js otto_tests/has_entity_contact_otto_tests.js lib/has_contact.js otto_tests/has_contact_otto_tests.js lib/no_contacts.js otto_tests/no_contacts_otto_tests.js > otto_tests/test.js
         if otto otto_tests/test.js | tee /dev/stderr | grep FAILED; then false; else true; fi
