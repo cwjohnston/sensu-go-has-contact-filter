@@ -1,6 +1,6 @@
 # Change Log
 
-## [Unreleased](https://github.com/sensu/sensu-go-has-contact-filter/tree/HEAD)
+## [0.4.0](https://github.com/sensu/sensu-go-has-contact-filter/tree/HEAD) (2025-02-07)
 [Full Changelog](https://github.com/sensu/sensu-go-has-contact-filter/compare/0.3.0...HEAD)
 - Added `has_check_contact` function. Use this to filter contacts in check contacts.
 - Added `has_entity_contact` function. Use this to filter contacts in entity contacts.
